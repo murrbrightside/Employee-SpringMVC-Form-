@@ -13,7 +13,7 @@ public class Employee {
     @NotBlank(message = "must be written")
     private String surname;
     @Min(value = 500, message = "must be greater than 500")
-    @Max(value = 1000, message = "must be less than 500")
+    @Max(value = 1000, message = "must be less than 1000")
     private int salary;
     private String department;
     private Map<String, String> departments;

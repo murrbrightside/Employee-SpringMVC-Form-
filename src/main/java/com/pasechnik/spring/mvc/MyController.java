@@ -4,9 +4,7 @@ import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MyController {
@@ -22,7 +20,8 @@ public class MyController {
         model.addAttribute("employee", new Employee());
         return "ask-emp-details-view";
     }
-    @RequestMapping("/showDetails")
+
+    @PostMapping (path = "/showDetails")
     public String showEmpDetails(@Valid @ModelAttribute("employee") Employee emp, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) return "ask-emp-details-view";
